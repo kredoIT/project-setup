@@ -9,8 +9,10 @@
 
 ### Create Laravel Docker Project Setup
 ```
+## make sure that all files inside the ./backend folder is empty
+
 1. $ git clone this repository
-2. $ cd docker-laravel
+2. $ cd project
 
 3. $ cp .env.template .env
 4. $ make create-project
@@ -67,4 +69,16 @@ $ docker-compose logs
 
 # laravel 8
 $ make create-project
-docker-compose exec app chown www-data storage/ -R
+
+# laravel storage log errors  / laravel storage permission
+$ docker-compose exec app chown www-data storage/ -R
+$ docker-compose exec app chmod -R 777 storage/
+
+
+# when using windows, copy the line of code below and change the infra/mysql/Dockerfile
+```
+FROM mysql:8.0.26
+
+COPY ./my.cnf /etc/mysql/conf.d/my.cnf
+RUN chmod 644 /etc/mysql/conf.d/my.cnf
+```

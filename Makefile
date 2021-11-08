@@ -8,14 +8,16 @@ create-project:
 	@make build
 	@make up
 	docker-compose exec app composer create-project --prefer-dist laravel/laravel . "8.*"
+	@make init
 init:
 	mkdir -p ./docker/php/bash/psysh
 	touch ./docker/php/bash/.bash_history
 	docker-compose up -d --build
-	docker-compose exec app composer install
+	docker-compose exec app composer install && sleep 12
 	docker-compose exec app cp .env.example .env
 	docker-compose exec app php artisan key:generate
 	docker-compose exec app php artisan storage:link
+	docker-compose exec app chmod -R 777 storage/
 	docker-compose exec app chown www-data storage/ -R
 stop:
 	docker-compose stop

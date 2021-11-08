@@ -16,7 +16,7 @@ services:
     working_dir: /work
 
   db:
-    image: mysql:8.0.22
+    image: mysql:8.0.26
     build: ./infra/mysql
     ports:
       - ${DB_PORT}:3306
