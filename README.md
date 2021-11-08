@@ -73,11 +73,9 @@ $ make create-project
 # laravel storage log errors  / laravel storage permission
 $ docker-compose exec app chown www-data storage/ -R
 $ docker-compose exec app chmod -R 777 storage/
-
-
-# when using windows, copy the line of code below and change the infra/mysql/Dockerfile
 ```
 
+# when using windows, copy the line of code below and change the infra/mysql/Dockerfile
 ```
 FROM mysql:8.0.26
 
