@@ -77,6 +77,8 @@ $ docker-compose exec app chmod -R 777 storage/
 
 # when using windows, copy the line of code below and change the infra/mysql/Dockerfile
 ```
+
+```
 FROM mysql:8.0.26
 
 COPY ./my.cnf /etc/mysql/conf.d/my.cnf
