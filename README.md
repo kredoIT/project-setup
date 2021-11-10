@@ -8,8 +8,9 @@
 ```
 
 ### Create Laravel Docker Project Setup
+#### make sure that all files inside the ./backend folder is empty
 ```
-## make sure that all files inside the ./backend folder is empty
+
 
 1. $ git clone this repository
 2. $ cd project
