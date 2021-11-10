@@ -29,7 +29,7 @@ DB_DATABASE=kredo
 DB_USERNAME=kredo
 DB_PASSWORD=password
 
-7. $ docker-compose migrate
+7. $ docker-compose exec app php artisan migrate
 ```
 
 
