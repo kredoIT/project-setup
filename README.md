@@ -66,7 +66,6 @@ $ docker-compose exec app php artisan db:seed
 
 
 
-
 ## FOR WINDOWS ENVIRONMENT
 
 ### installation
@@ -91,9 +90,9 @@ RUN chmod 644 /etc/mysql/conf.d/my.cnf
 1. mkdir -p ./docker/php/bash/psysh
 2. touch ./docker/php/bash/.bash_history
 3. cp .env.template .env
-3. winpty docker-compose build --no-cache --force-rm
-4. winpty docker-compose up -d
-5. winpty docker-compose exec app composer create-project --prefer-dist laravel/laravel . "8.*"
+4. winpty docker-compose build --no-cache --force-rm
+5. winpty docker-compose up -d
+6. winpty docker-compose exec app composer create-project --prefer-dist laravel/laravel . "8.*"
 ```
 ### project setup
 ```
@@ -101,6 +100,18 @@ RUN chmod 644 /etc/mysql/conf.d/my.cnf
 1. cp backend/.env.example backend/.env
 2. winpty docker-compose exec app composer install
 3. winpty docker-compose exec app php artisan key:generate
+
+# modify this to your ./backend/.env file 
+APP_URL=http://localhost
+
+DB_CONNECTION=mysql
+DB_HOST=db
+DB_PORT=3306
+DB_DATABASE=kredo
+DB_USERNAME=kredo
+DB_PASSWORD=password
+
+
 4. winpty docker-compose exec app php artisan config:cache
 5. winpty docker-compose exec app chown www-data storage/ -R
 6. winpty docker-compose exec app php artisan migrate
