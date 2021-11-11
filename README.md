@@ -7,19 +7,12 @@
 - Mysql: 8.0.26
 ```
 
-### FOR LINUX/MAC ENVIRONMENT
+## FOR LINUX/MAC ENVIRONMENT
 #### make sure that all files inside the ./backend folder is empty
 #### create the project
-
-```
-# laravel 8
-$ make create-project
-```
-
 ```
 1. $ git clone this repository
 2. $ cd project
-
 3. $ cp .env.template .env
 4. $ make create-project
 5. $ make init
@@ -72,13 +65,7 @@ $ docker-compose exec app php artisan db:seed
 ```
 
 
-#### when using windows, copy the line of code below and change the infra/mysql/Dockerfile
-```
-FROM mysql:8.0.26
 
-COPY ./my.cnf /etc/mysql/conf.d/my.cnf
-RUN chmod 644 /etc/mysql/conf.d/my.cnf
-```
 
 ## FOR WINDOWS ENVIRONMENT
 
@@ -90,8 +77,16 @@ RUN chmod 644 /etc/mysql/conf.d/my.cnf
 ```
 
 #### make sure ./backend folder is empty
-#### create a project
 
+#### Prioritize this change. Copy the line of code below and change the infra/mysql/Dockerfile code
+```
+FROM mysql:8.0.26
+
+COPY ./my.cnf /etc/mysql/conf.d/my.cnf
+RUN chmod 644 /etc/mysql/conf.d/my.cnf
+```
+
+#### create a project
 ```
 1. mkdir -p ./docker/php/bash/psysh
 2. touch ./docker/php/bash/.bash_history
