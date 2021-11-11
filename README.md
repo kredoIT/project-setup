@@ -7,7 +7,7 @@
 - Mysql: 8.0.26
 ```
 
-### Create Laravel Docker Project Setup
+### FOR LINUX/MAC ENVIRONMENT
 #### make sure that all files inside the ./backend folder is empty
 ```
 
@@ -61,6 +61,9 @@ $ docker-compose down
 
 # log for laravel
 $ docker-compose logs
+
+# seeding the database
+$ docker-compose exec app php artisan db:seed
 ```
 
 
@@ -83,3 +86,53 @@ FROM mysql:8.0.26
 COPY ./my.cnf /etc/mysql/conf.d/my.cnf
 RUN chmod 644 /etc/mysql/conf.d/my.cnf
 ```
+
+### FOR WINDOWS ENVIRONMENT
+
+#### installation
+
+```
+1. git clone this repository
+2. cd project
+```
+
+#### project setup
+```
+1. cp .env.template .env
+2. cp backend/.env.example backend/.env
+3. docker-compose up --build -d
+4. winpty docker-compose exec app composer install
+5. winpty docker-compose exec app php artisan key:generate
+6. winpty docker-compose exec app php artisan config:cache
+7. winpty docker-compose exec app chown www-data storage/ -R
+8. winpty docker-compose exec app php artisan migrate
+```
+
+#### executables
+
+```
+# up default container
+winpty docker-compose up -d
+
+# build no cache and force remake container
+winpty docker-compose build --no-cache --force-rm
+
+# check container
+winpty docker ps
+
+# stop container
+winpty docker-compose stop
+
+# remove container
+winpty docker-compose down
+
+# remove all of container stuff
+winpty docker-compose down --rmi all --volumes
+
+# log for laravel
+winpty docker-compose logs
+
+# seeding the database
+winpty docker-compose exec app php artisan db:seed
+```
+
