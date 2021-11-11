@@ -9,9 +9,14 @@
 
 ### FOR LINUX/MAC ENVIRONMENT
 #### make sure that all files inside the ./backend folder is empty
+#### create the project
+
+```
+# laravel 8
+$ make create-project
 ```
 
-
+```
 1. $ git clone this repository
 2. $ cd project
 
@@ -33,13 +38,13 @@ DB_PASSWORD=password
 ```
 
 
-### check browswer
+### check browser
 ```
 web server:     http://localhost/
 php my admin:   http://localhost:8888/
 ```
 
-### usage
+### executables
 ```
 # up default container
 $ docker-compose up -d
@@ -67,18 +72,6 @@ $ docker-compose exec app php artisan db:seed
 ```
 
 
-### FYI
-#### create laravel project inside backend folder
-```
-
-# laravel 8
-$ make create-project
-
-# laravel storage log errors  / laravel storage permission
-$ docker-compose exec app chown www-data storage/ -R
-$ docker-compose exec app chmod -R 777 storage/
-```
-
 #### when using windows, copy the line of code below and change the infra/mysql/Dockerfile
 ```
 FROM mysql:8.0.26
@@ -87,25 +80,35 @@ COPY ./my.cnf /etc/mysql/conf.d/my.cnf
 RUN chmod 644 /etc/mysql/conf.d/my.cnf
 ```
 
-### FOR WINDOWS ENVIRONMENT
+## FOR WINDOWS ENVIRONMENT
 
-#### installation
+### installation
 
 ```
 1. git clone this repository
 2. cd project
 ```
 
-#### project setup
+#### make sure ./backend folder is empty
+#### create a project
+
 ```
-1. cp .env.template .env
-2. cp backend/.env.example backend/.env
-3. docker-compose up --build -d
-4. winpty docker-compose exec app composer install
-5. winpty docker-compose exec app php artisan key:generate
-6. winpty docker-compose exec app php artisan config:cache
-7. winpty docker-compose exec app chown www-data storage/ -R
-8. winpty docker-compose exec app php artisan migrate
+1. mkdir -p ./docker/php/bash/psysh
+2. touch ./docker/php/bash/.bash_history
+3. cp .env.template .env
+3. winpty docker-compose build --no-cache --force-rm
+4. winpty docker-compose up -d
+5. winpty docker-compose exec app composer create-project --prefer-dist laravel/laravel . "8.*"
+```
+### project setup
+```
+
+1. cp backend/.env.example backend/.env
+2. winpty docker-compose exec app composer install
+3. winpty docker-compose exec app php artisan key:generate
+4. winpty docker-compose exec app php artisan config:cache
+5. winpty docker-compose exec app chown www-data storage/ -R
+6. winpty docker-compose exec app php artisan migrate
 ```
 
 #### executables
@@ -136,3 +139,18 @@ winpty docker-compose logs
 winpty docker-compose exec app php artisan db:seed
 ```
 
+
+## FYI
+#### create laravel project inside backend folder
+```
+
+# laravel storage log errors  / laravel storage permission [LINUX/MAC]
+$ docker-compose exec app chown www-data storage/ -R
+$ docker-compose exec app chmod -R 777 storage/
+
+------------------
+
+# laravel storage log errors  / laravel storage permission [WINDOWS]
+winpty docker-compose exec app chown www-data storage/ -R
+winpty docker-compose exec app chmod -R 777 storage/
+```
