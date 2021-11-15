@@ -17,8 +17,7 @@
 4. $ ls -la [ to check the current files / folders existing inside the ./backend folder]
 5. $ sudo rm -rf [you_file_or_folder_name]
 6. $ make create-project
-7. $ make init
-8. edit db info and app_url on backend/.env file
+7. edit db info and app_url on backend/.env file
 
 APP_URL=http://localhost
 
