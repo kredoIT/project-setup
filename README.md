@@ -8,11 +8,15 @@
 ```
 
 ## FOR LINUX/MAC ENVIRONMENT
-#### make sure that all files inside the ./backend folder is deleted
+
 #### create the project
 ```
 1. $ git clone this repository
 2. $ cd project
+```
+#### make sure that all files inside the ./backend folder is deleted
+
+```
 3. $ cp .env.template .env
 4. $ ls -la [ to check the current files / folders existing inside the ./backend folder]
 5. $ sudo rm -rf [you_file_or_folder_name]
