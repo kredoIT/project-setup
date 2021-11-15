@@ -14,9 +14,11 @@
 1. $ git clone this repository
 2. $ cd project
 3. $ cp .env.template .env
-4. $ make create-project
-5. $ make init
-6. edit db info and app_url on backend/.env file
+4. $ ls -la [ to check the current files / folders existing inside the ./backend folder]
+5. $ sudo rm -rf [you_file_or_folder_name]
+6. $ make create-project
+7. $ make init
+8. edit db info and app_url on backend/.env file
 
 APP_URL=http://localhost
 
@@ -90,9 +92,10 @@ RUN chmod 644 /etc/mysql/conf.d/my.cnf
 1. mkdir -p ./docker/php/bash/psysh
 2. touch ./docker/php/bash/.bash_history
 3. cp .env.template .env
-4. winpty docker-compose build --no-cache --force-rm
-5. winpty docker-compose up -d
-6. winpty docker-compose exec app composer create-project --prefer-dist laravel/laravel . "8.*"
+4. [unhide ALL FILES AND FOLDERS inside the ./backend and delete it manually]
+5. winpty docker-compose build --no-cache --force-rm
+6. winpty docker-compose up -d
+7. winpty docker-compose exec app composer create-project --prefer-dist laravel/laravel . "8.*"
 ```
 ### project setup
 ```
