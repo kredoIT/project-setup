@@ -8,7 +8,7 @@
 ```
 
 ## FOR LINUX/MAC ENVIRONMENT
-#### make sure that all files inside the ./backend folder is empty
+#### make sure that all files inside the ./backend folder is deleted
 #### create the project
 ```
 1. $ git clone this repository
