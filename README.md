@@ -14,8 +14,8 @@
 1. $ git clone this repository
 2. $ cd project
 ```
-#### make sure that all files inside the ./backend folder is deleted
 
+#### setting up the project
 ```
 1. $ cp .env.template .env
 2. $ ls -la [ to check the current files / folders existing inside the ./backend folder]
