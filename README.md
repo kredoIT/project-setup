@@ -72,15 +72,17 @@ $ docker-compose exec app php artisan db:seed
 
 
 ## FOR WINDOWS ENVIRONMENT
-
+### MAKE SURE TO EXECUTE THE COMMANDS UNDER GIT BASH TERMINAL. IF YOU DON'T HAVE GIT BASH IN YOUR SYSTEM, KINDLY REFER TO THIS LINK
+```
+1. https://git-scm.com/downloads 
+2. Select the installer for windows
+```
 ### installation
 
 ```
 1. git clone this repository
 2. cd project
 ```
-
-#### make sure ./backend folder is empty
 
 #### Prioritize this change. Copy the line of code below and change the infra/mysql/Dockerfile code
 ```
@@ -102,7 +104,6 @@ RUN chmod 644 /etc/mysql/conf.d/my.cnf
 ```
 ### project setup
 ```
-
 1. cp backend/.env.example backend/.env
 2. winpty docker-compose exec app composer install
 3. winpty docker-compose exec app php artisan key:generate
