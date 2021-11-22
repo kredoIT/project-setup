@@ -101,9 +101,8 @@ RUN chmod 644 /etc/mysql/conf.d/my.cnf
 2. touch ./docker/php/bash/.bash_history
 3. cp .env.template .env
 4. [unhide ALL FILES AND FOLDERS inside the ./backend and delete it manually]
-5. winpty docker-compose build --no-cache --force-rm
-6. winpty docker-compose up -d
-7. winpty docker-compose exec app composer create-project --prefer-dist laravel/laravel . "8.*"
+5. winpty docker-compose up --build -d
+6. winpty docker-compose exec app composer create-project --prefer-dist laravel/laravel . "8.*"
 ```
 ### project setup
 ```
@@ -123,8 +122,9 @@ DB_PASSWORD=password
 
 
 4. winpty docker-compose exec app php artisan config:cache
-5. winpty docker-compose exec app chown www-data storage/ -R
-6. winpty docker-compose exec app php artisan migrate
+5. winpty docker-compose exec app php artisan storage:link
+6. winpty docker-compose exec app chown www-data storage/ -R
+7. winpty docker-compose exec app php artisan migrate
 ```
 
 #### executables
