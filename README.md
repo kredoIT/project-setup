@@ -157,16 +157,15 @@ winpty docker-compose exec app php artisan db:seed
 
 
 ## FYI
-#### create laravel project inside backend folder
+#### laravel storage log errors  / laravel storage permission
 ```
-
-# laravel storage log errors  / laravel storage permission [LINUX/MAC]
+# [LINUX/MAC]
 $ docker-compose exec app chown www-data storage/ -R
 $ docker-compose exec app chmod -R 777 storage/
 
 ------------------
 
-# laravel storage log errors  / laravel storage permission [WINDOWS]
+# [WINDOWS]
 winpty docker-compose exec app chown www-data storage/ -R
 winpty docker-compose exec app chmod -R 777 storage/
 ```
